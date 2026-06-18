@@ -351,14 +351,14 @@ export default function WorkoutTracker() {
                         placeholder="—"
                         value={s.weight}
                         onChange={(e) => updateSet(exIdx, setIdx, "weight", e.target.value)}
-                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
+                        style={{ flex: 1, minWidth: 0, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
                       />
                       <input
                         type="number"
                         placeholder="—"
                         value={s.reps}
                         onChange={(e) => updateSet(exIdx, setIdx, "reps", e.target.value)}
-                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
+                        style={{ flex: 1, minWidth: 0, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
                       />
                       <button
                         onClick={() => toggleSetDone(exIdx, setIdx)}
