@@ -219,13 +219,13 @@ export default function WorkoutTracker() {
   if (view === "home") {
     const allSessions = getAllSessions();
     return (
-      <div style={{ background: "#0F0F13", minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: 40 }}>
+      <div style={{ background: "#0F0F13", minHeight: "100dvh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: "calc(40px + env(safe-area-inset-bottom))" }}>
         {toast && (
           <div style={{ position: "fixed", top: 20, left: "50%", transform: "translateX(-50%)", background: "#1F2937", color: "#F9FAFB", padding: "10px 20px", borderRadius: 10, zIndex: 999, fontSize: 14, boxShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>
             {toast}
           </div>
         )}
-        <div style={{ padding: "40px 20px 20px", borderBottom: "1px solid #1F2937" }}>
+        <div style={{ padding: "40px 20px 20px", paddingTop: "max(40px, calc(env(safe-area-inset-top) + 20px))", borderBottom: "1px solid #1F2937" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", color: "#6B7280", textTransform: "uppercase", marginBottom: 6 }}>Anthony's Gym</div>
           <h1 style={{ margin: 0, fontSize: 26, fontWeight: 800, letterSpacing: "-0.5px" }}>Workout Tracker</h1>
           <p style={{ margin: "6px 0 0", color: "#9CA3AF", fontSize: 14 }}>4-Day Upper / Lower Split</p>
@@ -284,14 +284,14 @@ export default function WorkoutTracker() {
   if (view === "workout" && activeDay) {
     const plan = WORKOUT_PLAN[activeDay];
     return (
-      <div style={{ background: "#0F0F13", minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: 100 }}>
+      <div style={{ background: "#0F0F13", minHeight: "100dvh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: "calc(100px + env(safe-area-inset-bottom))" }}>
         {toast && (
           <div style={{ position: "fixed", top: 20, left: "50%", transform: "translateX(-50%)", background: "#1F2937", color: "#F9FAFB", padding: "10px 20px", borderRadius: 10, zIndex: 999, fontSize: 14, boxShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>
             {toast}
           </div>
         )}
 
-        <div style={{ position: "sticky", top: 0, zIndex: 10, background: "#0F0F13", borderBottom: "1px solid #1F2937", padding: "16px 20px" }}>
+        <div style={{ position: "sticky", top: 0, zIndex: 10, background: "#0F0F13", borderBottom: "1px solid #1F2937", padding: "16px 20px", paddingTop: "max(16px, calc(env(safe-area-inset-top) + 8px))" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
             <button onClick={() => setView("home")} style={{ background: "none", border: "none", color: "#9CA3AF", cursor: "pointer", padding: 0, fontSize: 22 }}>←</button>
             <div>
@@ -351,14 +351,14 @@ export default function WorkoutTracker() {
                         placeholder="—"
                         value={s.weight}
                         onChange={(e) => updateSet(exIdx, setIdx, "weight", e.target.value)}
-                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 15, textAlign: "center", fontFamily: "inherit", outline: "none" }}
+                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
                       />
                       <input
                         type="number"
                         placeholder="—"
                         value={s.reps}
                         onChange={(e) => updateSet(exIdx, setIdx, "reps", e.target.value)}
-                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 15, textAlign: "center", fontFamily: "inherit", outline: "none" }}
+                        style={{ flex: 1, background: "#0F0F13", border: "1px solid #374151", borderRadius: 8, padding: "8px", color: "#F9FAFB", fontSize: 16, textAlign: "center", fontFamily: "inherit", outline: "none" }}
                       />
                       <button
                         onClick={() => toggleSetDone(exIdx, setIdx)}
@@ -397,8 +397,8 @@ export default function WorkoutTracker() {
     const allSessions = getAllSessions();
     const filtered = historyFilter === "all" ? allSessions : allSessions.filter((s) => s.day === historyFilter);
     return (
-      <div style={{ background: "#0F0F13", minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: 40 }}>
-        <div style={{ position: "sticky", top: 0, background: "#0F0F13", borderBottom: "1px solid #1F2937", padding: "16px 20px", zIndex: 10 }}>
+      <div style={{ background: "#0F0F13", minHeight: "100dvh", fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", paddingBottom: "calc(40px + env(safe-area-inset-bottom))" }}>
+        <div style={{ position: "sticky", top: 0, background: "#0F0F13", borderBottom: "1px solid #1F2937", padding: "16px 20px", paddingTop: "max(16px, calc(env(safe-area-inset-top) + 8px))", zIndex: 10 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
             <button onClick={() => setView("home")} style={{ background: "none", border: "none", color: "#9CA3AF", cursor: "pointer", padding: 0, fontSize: 22 }}>←</button>
             <div style={{ fontWeight: 800, fontSize: 18 }}>Session History</div>
